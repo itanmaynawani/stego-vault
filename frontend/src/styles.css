@@ -1,0 +1,30 @@
+:root {
+  --ink: #0e0b17; --panel: #171325; --line: #2e2748;
+  --text: #e6e1f2; --muted: #9a92b5; --glow: #a99bff; --bad: #ff8a8a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--ink); color: var(--text);
+  font: 400 1rem/1.5 "Hanken Grotesk", system-ui, sans-serif;
+  background-image: radial-gradient(60rem 30rem at 50% -10%, #231a44 0%, transparent 70%);
+}
+main { max-width: 34rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; display: grid; gap: 1.1rem; }
+h1 { font: italic 300 clamp(2rem, 6vw, 2.9rem)/1.1 "Newsreader", serif; margin: 0; }
+.sub { margin: 0 0 .5rem; color: var(--muted); }
+.tabs { display: flex; gap: 1.5rem; border-bottom: 1px solid var(--line); }
+.tabs button { background: none; border: 0; color: var(--muted); padding: .6rem 0; font: inherit; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--text); border-color: var(--glow); }
+.drop { border: 1px dashed var(--line); background: var(--panel); border-radius: 4px; min-height: 11rem; display: grid; place-items: center; cursor: pointer; color: var(--muted); padding: .5rem; text-align: center; transition: border-color .2s, box-shadow .2s; }
+.drop:hover, .drop.over { border-color: var(--glow); box-shadow: 0 0 2rem #a99bff22; }
+.drop img, .result img { max-width: 100%; max-height: 18rem; border-radius: 3px; }
+label { display: grid; gap: .4rem; color: var(--muted); font-size: .92rem; }
+textarea, input[type="password"] { width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; color: var(--text); font: inherit; padding: .7rem .8rem; resize: vertical; }
+:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+.go { justify-self: start; background: var(--glow); color: #120d26; border: 0; border-radius: 4px; padding: .75rem 1.3rem; font: 500 1rem "Hanken Grotesk", sans-serif; cursor: pointer; text-decoration: none; }
+.go:disabled { opacity: .35; cursor: not-allowed; }
+.note { margin: 0; font-size: .85rem; color: var(--muted); }
+.note.bad, .error { color: var(--bad); }
+.error { margin: 0; }
+.result { display: grid; gap: .8rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.plain { margin: 0; font: 300 1.5rem/1.4 "Newsreader", serif; white-space: pre-wrap; color: var(--glow); text-shadow: 0 0 1.2rem #a99bff66; overflow-wrap: anywhere; }
